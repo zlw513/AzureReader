@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sys_bg2"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.search.SearchBookActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/title_base"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_search_source"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="天籁"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_weight="3"
+                />
+
+            <EditText
+                android:id="@+id/et_search_key"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/search_et_backcolor"
+                android:singleLine="true"
+                android:maxLength="50"
+                android:layout_weight="1"
+                android:hint="输入关键词"
+                android:paddingStart="10dp" />
+
+            <TextView
+                android:id="@+id/tv_search_conform"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/search_btn_backcolor"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="搜索"
+                android:layout_weight="3"
+                android:textColor="@color/colorWrite"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_suggest_books_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWrite"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <me.gujun.android.taggroup.TagGroup
+                android:id="@+id/tg_suggest_book"
+                style="@style/TagGroup"
+                android:layout_marginTop="10dp"
+                app:atg_borderColor="@color/sys_suggest_line"
+                app:atg_horizontalPadding="10dp"
+                app:atg_textColor="@color/black"
+                app:atg_textSize="14sp"
+                app:atg_verticalSpacing="10dp" />
+
+            <LinearLayout
+                android:id="@+id/ll_refresh_suggest_books"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_refresh_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="换一批"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_history_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWrite"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ListView
+                android:id="@+id/lv_history_list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="@color/transprent"
+                android:fadingEdge="none"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+            </ListView>
+
+            <LinearLayout
+                android:id="@+id/ll_clear_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/clear" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="清空历史记录"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lv_search_books_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+        </ListView>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>

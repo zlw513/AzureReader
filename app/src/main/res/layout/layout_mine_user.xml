@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="128dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:showIn="@layout/fragment_person_center">
+
+    <com.zhlw.azurereader.custom.RoundImageView
+        android:id="@+id/riv_user_avatar"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:view_src="@drawable/avatar"
+        app:style="circle"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_login_flag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="未登录"
+        android:textSize="16sp" />
+
+    <com.zhlw.azurereader.custom.ShapeTextView
+        android:id="@+id/tv_action_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4.0dp"
+        android:gravity="center"
+        android:paddingBottom="6dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="6dp"
+        android:text="点击登录"
+        android:textColor="@color/colorAccent"
+        android:textSize="12sp"
+        app:super_cornerRadius="50dp"
+        android:elevation="0dp"
+        app:super_solidColor="@color/md_light_green_50"
+        app:super_strokeWidth="1dp" />
+
+</LinearLayout>

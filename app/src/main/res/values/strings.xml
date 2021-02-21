@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">蔚蓝书架</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--  对话框部分  -->
+    <string name="bubble_title">导入本地书籍？</string>
+    <string name="bubble_yes">是的</string>
+    <string name="bubble_no">不了</string>
+
+    <!--  toast弹出的都写下面  -->
+    <string name="toast_yes">点击了确定</string>
+    <string name="toast_no">点击了不了</string>
+
+    <string name="title_welcome">滚动显示欢迎xxx用户</string>
+
+    <!-- 书本item-->
+    <string name="tips_no_book_image">暂无\n封面</string>
+    <string name="book_item_author">作者名</string>
+    <string name="book_item_bookname">书名</string>
+    <!--fonts界面-->
+    <string name="font_using">正在使用</string>
+    <string name="font_example">为</string>
+    <string name="font_use">立即使用</string>
+    <string name="font">字体</string>
+
+    <string name="anti_hijacking_tips_home">蔚蓝书架切换至后台运行</string>
+    <string name="anti_hijacking_tips">蔚蓝书架切换至后台运行-请注意！</string>
+
+    <string name="day">日间</string>
+    <string name="night">夜间</string>
+    <string name="chapter_list">【目录】</string>
+    <string name="positive_sort">正序</string>
+    <string name="inverted_sort">倒序</string>
+
+    <string name="sys_file_provider">文件下载</string>
+
+    <string name="download_no_add_tips">缓存书籍需要先加入书架，您确定要添加本书到书架吗？</string>
+    <string name="download_already_all_tips">书籍已经缓存整本！</string>
+
+    <!--常用-->
+    <string name="tip">提示</string>
+    <string name="tips_sure">确定</string>
+    <string name="tips_cancel">取消</string>
+
+    <string name="file_sub_count">%1$d 项</string>
+    <string name="file_storage_name">存储卡:%1$s</string>
+
+    <string name="local_file_add_shelf">加入书架</string>
+    <string name="local_file_add_shelves">加入书架(%1$d)</string>
+    <string name="local_file_add_scuess">成功添加%1$d本书</string>
+
+    <string name="Complete">完成</string>
+    <string name="Error">失败</string>
+    <string name="Upload">登录</string>
+
+</resources>

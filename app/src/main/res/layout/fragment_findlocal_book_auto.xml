@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_scan"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_shape"
+        android:text="检索本地书籍"
+        android:textColor="@color/colorWrite"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_files"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Wave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            app:SpinKit_Color="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/tv_scanning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="扫描中......"
+            android:textSize="16sp"
+            android:layout_below="@id/spin_kit"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

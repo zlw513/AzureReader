@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  设置布局资源宽高的文件  -->
+    <dimen name="welcome_text_title_size">18sp</dimen>
+
+    <dimen name="tab_title_text_size">14sp</dimen>
+
+    <dimen name="ll_bubble_content_size">16sp</dimen>
+    <dimen name="ll_bubble_yes_or_no_size">12sp</dimen>
+
+    <!-- 书本item的dimension-->
+    <dimen name="book_item_image_text">12sp</dimen>
+    <dimen name="book_item_title_text">16sp</dimen>
+    <dimen name="book_item_author_text">12sp</dimen>
+
+</resources>

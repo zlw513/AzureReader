@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_login_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_navigate_before_black_24dp"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tv_userlogin_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="欢迎登录"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="15dp"
+        android:hint="用户名"
+        android:inputType="text"
+        android:maxLines="1"/>
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="密码"
+        android:inputType="textPassword"
+        android:layout_marginBottom="5dp"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/user_regesiter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="注册新账号"
+        android:gravity="end"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/back_to_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="已有账号，立即登录"
+        android:gravity="end"
+        android:textSize="12sp"
+        android:visibility="gone"/>
+
+    <com.flod.loadingbutton.LoadingButton
+        android:id="@+id/btn_login_foruser"
+        android:layout_width="164dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_shape_scuess"
+        android:drawablePadding="6dp"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="登录"
+        android:textColor="@color/colorWrite"
+        android:textSize="16sp"
+        app:shrinkDuration="450"
+        app:endCompleteDrawable="@drawable/ic_login_ok_24dp"
+        app:endFailDrawable="@drawable/ic_login_failed_24dp"/>
+
+</LinearLayout>

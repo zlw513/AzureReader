@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout_scan_book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabTextColor="@color/colorWrite"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager_scan_book"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <!--文件点击按钮-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:paddingRight="10dp"
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/file_system_cb_selected_all"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:button="@drawable/selector_cb_file"
+            android:text="全选"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/sys_blue"/>
+
+        <Button
+            android:id="@+id/file_system_btn_add_book"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:minWidth="110dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/setting_btn_bg"
+            android:textColor="@color/sys_blue"
+            android:text="加入书架" />
+
+        <Button
+            android:id="@+id/file_system_btn_delete"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/setting_btn_bg"
+            android:textColor="@color/sys_blue"
+            android:layout_toLeftOf="@id/file_system_btn_add_book"
+            android:text="删除"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

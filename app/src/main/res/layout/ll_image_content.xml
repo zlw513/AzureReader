@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:id="@+id/rl_bubble"
+    tools:showIn="@layout/fragment_local_book"
+    android:padding="8dp"
+    android:visibility="gone"
+    >
+
+    <TextView
+        android:id="@+id/tv_bubble_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/ll_bubble_content_size"
+        android:text="@string/bubble_title"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/tv_bubble_yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bubble_yes"
+        android:layout_below="@id/tv_bubble_title"
+        android:textStyle="bold"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:background="@drawable/ll_image_content_shape"
+        android:textSize="@dimen/ll_bubble_yes_or_no_size"
+        android:layout_marginStart="15dp"/>
+
+    <TextView
+        android:id="@+id/tv_bubble_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bubble_no"
+        android:textSize="@dimen/ll_bubble_yes_or_no_size"
+        android:layout_below="@id/tv_bubble_title"
+        android:layout_toRightOf="@id/tv_bubble_yes"
+        android:layout_marginLeft="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:background="@drawable/tablayout_item_normal"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:showIn="@layout/activity_main"
+    android:padding="5dp">
+
+    <Switch
+        android:id="@+id/switch_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="列表"
+        android:textColor="@color/sys_red2"
+        android:textSize="16sp"
+        android:thumb="@drawable/switch_custom_thumb_on"
+        android:splitTrack="false"
+        android:track="@drawable/switch_custom_track_selector" />
+
+    <TextView
+        android:id="@+id/tv_switch_gongge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="宫格"
+        android:textColor="@color/colorWrite"
+        />
+
+    <TextView
+        android:id="@+id/tv_toolbar_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_search_24dp"
+        android:text="本地书架"
+        android:textColor="@color/colorWrite"
+        android:textSize="16sp"
+        android:gravity="center"/>
+
+</LinearLayout>

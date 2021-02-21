@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="6dp"
+    tools:context=".ui.home.onlinebook.OnlineBookShopFragment">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/srl_bookshop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/sv_online_bookshop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/ll_bookshop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="invisible">
+
+                <!--    每日推荐    -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="6dp">
+                        <com.romainpiel.shimmer.ShimmerTextView
+                            android:id="@+id/shimmer_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="每日推荐"
+                            android:textColor="@color/sys_common_word"
+                            android:textSize="18sp"
+                            android:requiresFadingEdge="horizontal"
+                            app:reflectionColor = "@color/origin"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_book_shop_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:text="2020-04-24"
+                            android:gravity="end"
+                            />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_daily_recomment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <!--    玄幻分类    -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="玄幻小说"
+                            android:textColor="@color/sys_common_word"
+                            android:textSize="18sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_book_shop_fantisy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="查看更多"
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/sys_blue_little"
+                            android:gravity="end"
+                            />
+                    </LinearLayout>
+                    <!--  TODO 这里做一个水平的recycler view 放置玄幻分类的书 共10本   -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_fantisy_noval"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!--    修真分类    -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="修真小说"
+                            android:textColor="@color/sys_common_word"
+                            android:textSize="18sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_book_shop_kongfu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="查看更多"
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/sys_blue_little"
+                            android:gravity="end"
+                            />
+                    </LinearLayout>
+                    <!--  TODO 这里做一个水平的recycler view 放置玄幻分类的书 共10本   -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_kongfu_noval"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!--    科幻分类    -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="科幻小说"
+                            android:textColor="@color/sys_common_word"
+                            android:textSize="18sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_book_shop_science"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="查看更多"
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/sys_blue_little"
+                            android:gravity="end"
+                            />
+                    </LinearLayout>
+                    <!--  TODO 这里做一个水平的recycler view 放置玄幻分类的书 共10本   -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_science_noval"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!--    都市分类    -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="都市小说"
+                            android:textColor="@color/sys_common_word"
+                            android:textSize="18sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_book_shop_city"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="查看更多"
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/sys_blue_little"
+                            android:gravity="end"
+                            />
+                    </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_city_noval"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!--    历史分类    -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="历史小说"
+                            android:textColor="@color/sys_common_word"
+                            android:textSize="18sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_book_shop_history"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="查看更多"
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/sys_blue_little"
+                            android:gravity="end"
+                            />
+                    </LinearLayout>
+                    <!--  TODO 这里做一个水平的recycler view 放置玄幻分类的书 共10本   -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_history_noval"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!--    网游分类    -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="网游小说"
+                            android:textColor="@color/sys_common_word"
+                            android:textSize="18sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_book_shop_gamenovel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="查看更多"
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/sys_blue_little"
+                            android:gravity="end"
+                            />
+                    </LinearLayout>
+                    <!--  TODO 这里做一个水平的recycler view 放置玄幻分类的书 共10本   -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_game_noval"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</FrameLayout>

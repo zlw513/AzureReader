@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="btnBackground" format="reference" />
+
+    <!--  登录界面的 点击登录 那个按钮的属性封装 -->
+    <declare-styleable name="SuperShapeView">
+        <attr name="super_cornerRadius" format="dimension"/>
+        <attr name="super_strokeWidth" format="dimension"/>
+
+        <attr name="super_strokeColor" format="color|reference"/>
+        <attr name="super_strokeColor_pressed" format="color|reference"/>
+        <attr name="super_strokeColor_selected" format="color|reference"/>
+
+        <attr name="super_solidColor" format="color|reference"/>
+        <attr name="super_solidColor_pressed" format="color|reference"/>
+        <attr name="super_solidColor_selected" format="color|reference"/>
+
+        <attr name="super_dashWidth" format="dimension"/>
+        <attr name="super_dashGap" format="dimension"/>
+
+        <attr name="super_topLeftRadius" format="dimension"/>
+        <attr name="super_topRightRadius" format="dimension"/>
+        <attr name="super_bottomLeftRadius" format="dimension"/>
+        <attr name="super_bottomRightRadius" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="MineRowView">
+        <attr name="mine_icon" format="color|reference"/>
+        <attr name="mine_title" format="string"/>
+        <attr name="mine_divider_visibility" format="boolean"/>
+        <attr name="mine_arrow_visibility" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="view_src" format="reference"/>
+        <attr name="style" format="enum">
+            <enum name="circle" value="0"/>
+            <enum name="rettangle" value="1"/>
+        </attr>
+        <attr name="radius" format="integer"/>
+    </declare-styleable>
+</resources>

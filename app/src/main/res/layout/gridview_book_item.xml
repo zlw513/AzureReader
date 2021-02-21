@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="110dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_book_img"
+            android:layout_width="70dp"
+            android:layout_height="95dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/no_image"
+            />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/tv_book_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="bookname"
+            android:gravity="center"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:scaleType="center"
+        android:src="@drawable/ic_cancel_gray"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        />
+
+</RelativeLayout>

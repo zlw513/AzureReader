@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/dl_read_activity"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.read.ReadActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/srl_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/transprent"
+                android:overScrollMode="never"
+                android:dividerHeight="25dp"
+                android:fadingEdge="none"
+                android:listSelector="@color/transprent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_chapter_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="start">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/tv_book_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="【目录】"
+                android:textSize="20sp"
+                android:padding="15dp"
+                android:textColor="@color/sys_protect_eye_word"/>
+
+            <TextView
+                android:id="@+id/tv_chapter_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="倒序"
+                android:textSize="15sp"
+                android:padding="15dp"
+                android:textColor="@color/sys_protect_eye_word"/>
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lv_chapter_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:divider="@color/transprent"
+            android:overScrollMode="never"
+            android:fadingEdge="none"
+            android:listSelector="@color/transprent">
+
+        </ListView>
+
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

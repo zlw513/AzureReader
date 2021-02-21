@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/iv_book_img"
+        android:layout_width="70dp"
+        android:layout_height="95dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/no_image" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/tv_book_item_title_bookname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/book_item_bookname"
+            android:textSize="@dimen/book_item_title_text"
+            android:layout_marginBottom="26dp"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            />
+
+        <TextView
+            android:id="@+id/tv_book_item_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/book_item_author"
+            android:layout_below="@id/tv_book_item_title_bookname"
+            android:textSize="14sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_book_item_bookStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_book_item_author"
+            android:textSize="@dimen/book_item_author_text"
+            tools:text="本地书籍" />
+
+    </RelativeLayout>
+
+</LinearLayout>
