@@ -3,6 +3,7 @@ package com.zhlw.azurereader.ui.bookinfo;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
@@ -52,23 +53,42 @@ public class BookInfoPresenter implements BasePresenter {
     private void init(){
         mBookInfoActivity.getTvTitleText().setText(mBook.getName());
         mBookInfoActivity.getTvBookAuthor().setText(mBook.getAuthor());
+        Log.d("zlww", "init: ChapterUrl is  "+mBook.getChapterUrl());
         if (mBook.getType() == null || "".equals(mBook.getType())){
-            //获取书籍描述的方法,根据书名来反查相关信息
-            CommonApi.searchDeatil(mBook.getName(), new ResultCallback() {
-                @Override
-                public void onFinish(Object o, int code) {
-                    Book book = (Book) o;
-                    mBook.setDesc(book.getDesc());
-                    mBook.setType(book.getType());
-                    mBook.setAuthor(book.getAuthor());
-                    handler.sendMessage(handler.obtainMessage(1));
-                }
+            //获取书籍描述的方法,根据书的章节信息来确定
+            if (!TextUtils.isEmpty(mBook.getChapterUrl())){
+                CommonApi.searchDeatil(mBook.getChapterUrl(), new ResultCallback() {
+                    @Override
+                    public void onFinish(Object o, int code) {
+                        Book book = (Book) o;
+                        mBook.setDesc(book.getDesc());
+                        mBook.setType(book.getType());
+                        mBook.setAuthor(book.getAuthor());
+                        handler.sendMessage(handler.obtainMessage(1));
+                    }
 
-                @Override
-                public void onError(Exception e) {
+                    @Override
+                    public void onError(Exception e) {
 
-                }
-            });
+                    }
+                });
+            } else {
+                CommonApi.searchDeatil(mBook.getName(), new ResultCallback() {
+                    @Override
+                    public void onFinish(Object o, int code) {
+                        Book book = (Book) o;
+                        mBook.setDesc(book.getDesc());
+                        mBook.setType(book.getType());
+                        mBook.setAuthor(book.getAuthor());
+                        handler.sendMessage(handler.obtainMessage(1));
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                    }
+                });
+            }
         } else {
             mBookInfoActivity.getTvBookDesc().setText(mBook.getDesc());
         }

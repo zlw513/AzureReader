@@ -58,7 +58,7 @@ public class TianLaiReadUtil {
         int i = 0;
         while (matcher.find()) {
             String content = matcher.group();
-            String title = content.substring(content.indexOf("\">") + 2, content.lastIndexOf("<"));
+            String title = content.substring(content.indexOf("\"  >")+4, content.lastIndexOf("<"));
             if (!StringHelper.isEmpty(lastTile) && title.equals(lastTile)) {
                 continue;
             }
@@ -298,6 +298,22 @@ public class TianLaiReadUtil {
             }
             break;
         }
+        return book;
+    }
+
+    public static Book getBookInfo(String html){
+        Book book = new Book();
+        Document doc = Jsoup.parse(html);
+        Elements divs = doc.getElementsByClass("box_con");
+        Element div = divs.get(0).children().get(1);//<div id="maininfo"> 这里获取的就是上面的maininfo
+        Log.d("zlww", "getBookInfoBySearchHtml: div "+div);
+        book.setName(div.children().get(0).child(0).text());
+        book.setAuthor(div.children().get(0).child(1).text());
+        book.setType(div.children().get(0).child(2).ownText());//只获取它自己的text，不要“子类”中的text
+        book.setUpdateDate(div.children().get(0).child(3).text());
+        book.setNewestChapterTitle(div.children().get(0).child(4).child(0).text());
+        book.setNewestChapterUrl(div.children().get(0).child(4).child(0).attr("href"));
+        book.setDesc(div.children().get(1).text());
         return book;
     }
 

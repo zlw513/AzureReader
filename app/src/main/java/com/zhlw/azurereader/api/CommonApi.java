@@ -177,7 +177,7 @@ public class CommonApi extends BaseApi{
      */
     public static void search(String key, final ResultCallback callback){
         Map<String, Object> params = new HashMap<>();
-        params.put("keyword", key);
+        params.put("q", key);
         getCommonReturnHtmlStringApi(URLCONST.method_buxiu_search, params, "utf-8", new ResultCallback() {
             @Override
             public void onFinish(Object o, int code) {
@@ -190,7 +190,7 @@ public class CommonApi extends BaseApi{
                     ArrayList<Book> mbooks = new ArrayList<>(TianLaiReadUtil.getBooksFromSearchHtml((String) o));
                     for (int i=2;i<=pageCount;i++){
                         Map<String, Object> params = new HashMap<>();
-                        params.put("keyword", key);
+                        params.put("q", key);
                         params.put("page", i);
                         getCommonReturnHtmlStringApi(URLCONST.method_buxiu_search, params, "utf-8", new ResultCallback() {
                             @Override
@@ -222,12 +222,25 @@ public class CommonApi extends BaseApi{
      * @param callback
      */
     public static void searchDeatil(String bookName, final ResultCallback callback){
-        Map<String, Object> params = new HashMap<>();
-        params.put("keyword", bookName);
-        getCommonReturnHtmlStringApi(URLCONST.method_buxiu_search, params, "utf-8", new ResultCallback() {
+        Map<String, Object> params = null;
+        String url;
+        if (bookName.contains("http")){
+            //是通过章节来搜索的
+            url = bookName;
+            Log.d("zlww", "searchDeatil: 通过章节搜索的");
+        } else {
+            params = new HashMap<>();
+            params.put("q", bookName);
+            url = URLCONST.method_buxiu_search;
+        }
+        getCommonReturnHtmlStringApi(url, params, "GBK", new ResultCallback() {
             @Override
             public void onFinish(Object o, int code) {
-                callback.onFinish(TianLaiReadUtil.getBookInfoBySearchHtml((String)o,bookName),code);
+                if (bookName.contains("http")){
+                    callback.onFinish(TianLaiReadUtil.getBookInfo((String) o),code);
+                } else {
+                    callback.onFinish(TianLaiReadUtil.getBookInfoBySearchHtml((String)o,bookName),code);
+                }
             }
 
             @Override
