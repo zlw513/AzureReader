@@ -435,7 +435,7 @@ public class ReadPresenter implements BasePresenter {
                         }
                     }, new View.OnClickListener() {
                         @Override
-                        public void onClick(View view) {//设置
+                        public void onClick(View view) {//详情设置界面
                             showSettingDetailView();
                         }
                     }, new SeekBar.OnSeekBarChangeListener() {//阅读进度  注意：这里是每一章节的进度

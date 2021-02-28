@@ -1,22 +1,29 @@
 package com.zhlw.azurereader.ui.home.personcenter;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import androidx.appcompat.app.AppCompatDelegate;
+
+import com.zhlw.azurereader.application.SysManager;
+import com.zhlw.azurereader.bean.Setting;
 import com.zhlw.azurereader.constant.APPCONST;
 import com.zhlw.azurereader.presenter.BasePresenter;
 import com.zhlw.azurereader.ui.home.MainActivity;
 import com.zhlw.azurereader.ui.login.LoginActivity;
+import com.zhlw.azurereader.utils.BrightUtil;
 
 public class PersonCenterPresenter implements BasePresenter {
 
     private PersonCenterFragment mPersonCenterFragment;
     private MainActivity mainActivity;
+    private Setting setting;
 
     PersonCenterPresenter(PersonCenterFragment personCenterFragment){
         mPersonCenterFragment = personCenterFragment;
         //下面是向下转型
         mainActivity = (MainActivity) personCenterFragment.getActivity();//获取view model是为了显示
+        setting = SysManager.getSetting();
     }
 
     @Override
@@ -39,18 +46,28 @@ public class PersonCenterPresenter implements BasePresenter {
             @Override
             public void onClick(View v) {
                 if (APPCONST.isDayMode){
-                    //没选中时,默认就是日间模式 , 所以点击时要切换为夜间
-                    mainActivity.getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    //没选中时,默认就是日间模式 , 所以点击时要切换为夜
+                    BrightUtil.setBrightness(mainActivity, BrightUtil.progressToBright(2));
+                    setting.setBrightProgress(2);
+                    setting.setBrightFollowSystem(false);
+                    SysManager.saveSetting(setting);
+
+                    //mainActivity.getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                     APPCONST.isDayMode = false;
                     mPersonCenterFragment.getmSwitch().setChecked(true);
                 } else {
                     //设置app为夜间显示 此时进入这里 isDayMode为 false
-                    mainActivity.getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    BrightUtil.followSystemBright(mainActivity);
+                    setting.setBrightFollowSystem(true);
+                    SysManager.saveSetting(setting);
+
+                    //mainActivity.getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     APPCONST.isDayMode = true;
                     mPersonCenterFragment.getmSwitch().setChecked(false);
                 }
-                mainActivity.recreate();
+                // mainActivity.recreate(); //会闪屏一下
             }
+
         });
     }
 
