@@ -25,7 +25,7 @@
                 android:background="@drawable/bg_list_item"
                 android:clickable="true"
                 app:mine_icon="@drawable/ic_vector_app_setting"
-                app:mine_title="设置" />
+                app:mine_title="动态换肤" />
 
             <com.zhlw.azurereader.custom.MineRowView
                 android:id="@+id/mine_app_night_mode"

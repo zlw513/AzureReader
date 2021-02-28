@@ -67,8 +67,19 @@ public class PersonCenterPresenter implements BasePresenter {
                 }
                 // mainActivity.recreate(); //会闪屏一下
             }
-
         });
+
+        mPersonCenterFragment.getmSkinChange().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO 换主题颜色功能,弹一个dialog
+
+
+
+            }
+        });
+
+
     }
 
 

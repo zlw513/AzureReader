@@ -18,6 +18,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.zhlw.azurereader.R;
+import com.zhlw.azurereader.custom.MineRowView;
 import com.zhlw.azurereader.custom.ShapeTextView;
 import com.zhlw.azurereader.ui.home.MainActivity;
 
@@ -36,6 +37,8 @@ public class PersonCenterFragment extends Fragment {
     ShapeTextView mShapeTextView;//登录按钮
     @BindView(R.id.sw_night_mode)
     Switch mSwitch;//夜间 日间切换开关
+    @BindView(R.id.mine_app_setting)
+    MineRowView mSkinChange;
     private Unbinder unbinder;
     private Context mContext;
     private PersonCenterPresenter mPersonCenterPresenter;
@@ -103,4 +106,7 @@ public class PersonCenterFragment extends Fragment {
         return mSwitch;
     }
 
+    public MineRowView getmSkinChange() {
+        return mSkinChange;
+    }
 }
