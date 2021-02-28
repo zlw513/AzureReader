@@ -50,7 +50,7 @@ public class Chapter {
         this.number = number;
     }
     public String getTitle() {
-        return this.title;
+        return this.title.trim();
     }
     public void setTitle(String title) {
         this.title = title;
