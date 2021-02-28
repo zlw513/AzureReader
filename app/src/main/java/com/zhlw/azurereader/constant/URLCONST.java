@@ -5,7 +5,7 @@ public class URLCONST {
     /***********************************添加多小说源  备用*****************************************/
     // 命名空间
     public static final String nameSpace_tianlai = "http://www.233txt.com";
-    public static final String nameSpace_biyuwu = "http://www.thxsw.com";  // 备胎首选  官术网 2021-02-28 搜索已经凉了
+    public static final String nameSpace_biyuwu = "https://www.thxsw.com";  // 备胎首选  官术网 2021-02-28
     public static final String nameSpace_midog = "http://www.92zw.la";
     public static final String nameSpace_630book_cc = "http://www.630book.cc";
     public static final String nameSpace_fengyuwenxue = "http://www.44pq.net";
@@ -28,7 +28,7 @@ public class URLCONST {
 
     // 搜索小说
     public static String method_buxiu_search = "http://www.233txt.com/search.php";
-    public static String method_biyuwu_search = "https://www.biyuwu.cc/search.php";
+    public static String method_biyuwu_search = "https://m.thxsw.com/search.php";//现在使用官术网手机端的搜索
 
     // 获取最新版本号
     public static String method_getCurAppVersion = nameSpace_system + "/mReaderController.do?getCurAppVersion";

@@ -776,6 +776,7 @@ public class ReadPresenter implements BasePresenter {
             //从网上获取章节列表  唯一获取章节的位置  mBook.getChapterUrl() 是所有章节所在的地址
             if (mBook.getDesc().contains("官术网")){
                 //获取官术网中章节地址 只有这一处调用
+                Log.d("zlww111", "getData: ChapterUrl "+mBook.getChapterUrl());
                 GuanShuWangApi.getBookChapters(mBook.getChapterUrl(), new ResultCallback() {
                     @Override
                     public void onFinish(Object o, int code) {

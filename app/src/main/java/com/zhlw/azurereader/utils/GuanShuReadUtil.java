@@ -86,7 +86,9 @@ public class GuanShuReadUtil {
             book.setImgUrl(img.attr("src"));
             Element title = element.getElementsByClass("result-item-title result-game-item-title").get(0);
             book.setName(title.child(0).attr("title"));
-            book.setChapterUrl("https://www.biyuwu.cc" + title.child(0).attr("href"));//这里只需要存章节列表即可
+            String tempChapterUrl = title.child(0).attr("href").substring(5);
+            book.setChapterUrl("https://www.thxsw.com/html/" + tempChapterUrl.substring(1, 3)+tempChapterUrl);// 拼接成类似这样的 https://www.thxsw.com/html/86/86232/
+            Log.d("zlww", "getBooksFromSearchHtml guanshu ChapterUrl is  "+book.getChapterUrl());
             Element desc = element.getElementsByClass("result-game-item-desc").get(0);
             book.setDesc("官术网："+desc.text());
             Element info = element.getElementsByClass("result-game-item-info").get(0);

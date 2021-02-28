@@ -308,7 +308,7 @@ public class TianLaiReadUtil {
         Element div = divs.get(0).children().get(1);//<div id="maininfo"> 这里获取的就是上面的maininfo
         Log.d("zlww", "getBookInfoBySearchHtml: div "+div);
         book.setName(div.children().get(0).child(0).text());
-        book.setAuthor(div.children().get(0).child(1).text());
+        book.setAuthor(div.children().get(0).child(1).text().substring(7));
         book.setType(div.children().get(0).child(2).ownText().replace(",,", ""));//只获取它自己的text，不要“子类”中的text
         book.setUpdateDate(div.children().get(0).child(3).text());
         book.setNewestChapterTitle(div.children().get(0).child(4).child(0).text());
