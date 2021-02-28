@@ -191,7 +191,7 @@ public class CommonApi extends BaseApi{
                     for (int i=2;i<=pageCount;i++){
                         Map<String, Object> params = new HashMap<>();
                         params.put("q", key);
-                        params.put("page", i);
+                        params.put("p", i);
                         getCommonReturnHtmlStringApi(URLCONST.method_buxiu_search, params, "utf-8", new ResultCallback() {
                             @Override
                             public void onFinish(Object o, int code) {

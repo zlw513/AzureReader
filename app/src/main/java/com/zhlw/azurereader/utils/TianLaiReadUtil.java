@@ -251,7 +251,7 @@ public class TianLaiReadUtil {
         for (Element element : page.children()) {
             String info = element.text();
             if (info.contains("末页")) {
-                Pattern pattern = Pattern.compile("page=");
+                Pattern pattern = Pattern.compile("p=");
                 Matcher matcher = pattern.matcher(element.attr("href"));
                 if (matcher.find()) {
                     pageNum = element.attr("href").substring(matcher.end());
@@ -309,7 +309,7 @@ public class TianLaiReadUtil {
         Log.d("zlww", "getBookInfoBySearchHtml: div "+div);
         book.setName(div.children().get(0).child(0).text());
         book.setAuthor(div.children().get(0).child(1).text());
-        book.setType(div.children().get(0).child(2).ownText());//只获取它自己的text，不要“子类”中的text
+        book.setType(div.children().get(0).child(2).ownText().replace(",,", ""));//只获取它自己的text，不要“子类”中的text
         book.setUpdateDate(div.children().get(0).child(3).text());
         book.setNewestChapterTitle(div.children().get(0).child(4).child(0).text());
         book.setNewestChapterUrl(div.children().get(0).child(4).child(0).attr("href"));
