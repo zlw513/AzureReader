@@ -23,6 +23,9 @@ import com.zhlw.azurereader.utils.StringHelper;
 import com.zhlw.azurereader.utils.ToastUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import me.gujun.android.taggroup.TagGroup;
 
@@ -44,7 +47,10 @@ public class SearchBookPrensenter implements BasePresenter {
     private int confirmTime = 1000;//搜索输入确认时间（毫秒）
 
     //下面是默认的一些推荐
-    private static String[] suggestion = {"不朽凡人", "圣墟", "我是至尊" ,"龙王传说", "太古神王", "一念永恒", "雪鹰领主", "大主宰"};
+    private static String[] suggestion = {"不朽凡人", "圣墟", "我是至尊" ,"龙王传说", "太古神王", "一念永恒", "雪鹰领主", "大主宰","大道朝天",
+    "临渊行","斗罗大陆","平天策","官术","黎明之剑","元尊","伏天氏","沧元图","诛仙","斗破苍穹","武动乾坤","龙族2","13路末班车","第九特区","一世兵王"
+    ,"校花的贴身高手","凡人修仙传","无限恐怖","莽荒纪","剑来","牧神记","一念永恒","神印王座","傲世九重天","恐怖广播","异常生物见闻录","完美世界"
+    ,"万兽朝凰","妙手生香"};
 
     private Handler mHandler = new Handler() {
         @Override
@@ -68,9 +74,7 @@ public class SearchBookPrensenter implements BasePresenter {
     public SearchBookPrensenter(SearchBookActivity searchBookActivity) {
         mSearchBookActivity = searchBookActivity;
         mSearchHistoryService = new SearchHistoryService();
-        for (int i = 0; i < suggestion.length; i++) {
-            mSuggestions.add(suggestion[i]);
-        }
+        mSuggestions.addAll(Arrays.asList(suggestion));
     }
 
     @Override
@@ -80,6 +84,19 @@ public class SearchBookPrensenter implements BasePresenter {
             @Override
             public void onClick(View view) {
                 mSearchBookActivity.finish();
+            }
+        });
+        mSearchBookActivity.getLlRefreshSuggestBooks().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //换一批
+                Random r = new Random();
+                int oldNum = fromIndex;
+                fromIndex = r.nextInt(6) * 6;
+                while (fromIndex == oldNum){
+                    fromIndex = r.nextInt(6) * 6;
+                }
+                initSuggestionBook();
             }
         });
         mSearchBookActivity.getEtSearchKey().addTextChangedListener(new TextWatcher() {
@@ -153,11 +170,13 @@ public class SearchBookPrensenter implements BasePresenter {
         initHistoryList();
     }
 
+    private int fromIndex = 0;
+
     /**
      * 初始化建议书目
      */
     private void initSuggestionBook() {
-        mSearchBookActivity.getTgSuggestBook().setTags(suggestion);
+        mSearchBookActivity.getTgSuggestBook().setTags(mSuggestions.subList(fromIndex, Math.min((fromIndex + 6), suggestion.length)));
     }
 
     /**
