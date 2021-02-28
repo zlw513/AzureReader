@@ -39,4 +39,14 @@
         </attr>
         <attr name="radius" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="ButtyEditTextView">
+        <attr name="light_type" format="integer"/>
+        <attr name="gardient_start_color" format="color"/>
+        <attr name="gardient_end_color" format="color"/>
+        <attr name="text_display" format="string"/>
+        <attr name="hilt_name" format="string"/>
+        <attr name="cur_inputtype" format="string"/>
+    </declare-styleable>
+
 </resources>

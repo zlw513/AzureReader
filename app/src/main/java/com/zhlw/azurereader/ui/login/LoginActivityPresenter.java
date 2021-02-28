@@ -161,18 +161,18 @@ public class LoginActivityPresenter implements BasePresenter {
         mLoginActivity.getLoadingButton().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!mLoginActivity.getmEtUserName().getText().toString().equals("")&&!mLoginActivity.getmEtPassWord().getText().toString().equals("")){
+                if(!mLoginActivity.getmEtUserName().getEditText().getText().toString().equals("")&&!mLoginActivity.getmEtPassWord().getEditText().getText().toString().equals("")){
                     if (mLoginActivity.getmTvResgister().getVisibility() == View.VISIBLE){
                         //此时为登录事件
                         if (!isAnimStart){
                             mLoginActivity.getLoadingButton().start();//开始动画
-                            new MyAsyncTask(mLoginActivity.getmEtUserName().getText().toString(),mLoginActivity.getmEtPassWord().getText().toString(),0).execute();
+                            new MyAsyncTask(mLoginActivity.getmEtUserName().getEditText().getText().toString(),mLoginActivity.getmEtPassWord().getEditText().getText().toString(),0).execute();
                         }
                     } else {
                         if (!isAnimStart){
                             //此时为注册事件
                             mLoginActivity.getLoadingButton().start();//开始动画
-                            new MyAsyncTask(mLoginActivity.getmEtUserName().getText().toString(),mLoginActivity.getmEtPassWord().getText().toString(),1).execute();
+                            new MyAsyncTask(mLoginActivity.getmEtUserName().getEditText().getText().toString(),mLoginActivity.getmEtPassWord().getEditText().getText().toString(),1).execute();
                         }
                     }
                 } else {
@@ -202,7 +202,7 @@ public class LoginActivityPresenter implements BasePresenter {
                     //检查状态的  这里是登录状态的情况
                     ToastUtils.showToast("登录成功");
                     Intent intent = new Intent();
-                    intent.putExtra("用户名", "欢迎："+mLoginActivity.getmEtUserName().getText().toString());
+                    intent.putExtra("用户名", "欢迎："+mLoginActivity.getmEtUserName().getEditText().getText().toString());
                     mLoginActivity.setResult(Activity.RESULT_OK,intent);
                     mLoginActivity.finish();
                 } else {

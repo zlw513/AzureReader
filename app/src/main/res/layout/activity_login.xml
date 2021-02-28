@@ -28,24 +28,23 @@
 
     </LinearLayout>
 
-    <EditText
+    <com.zhlw.azurereader.custom.ButtyEditTextView
         android:id="@+id/et_user_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="15dp"
-        android:hint="用户名"
-        android:inputType="text"
-        android:maxLines="1"/>
+        app:hilt_name="用户名"
+        app:cur_inputtype="text" />
 
-    <EditText
+    <com.zhlw.azurereader.custom.ButtyEditTextView
         android:id="@+id/et_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="密码"
-        android:inputType="textPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        app:hilt_name="密码"
+        app:cur_inputtype="textPassword"
         android:layout_marginBottom="5dp"
-        android:maxLines="1"/>
+        />
 
     <TextView
         android:id="@+id/user_regesiter"
