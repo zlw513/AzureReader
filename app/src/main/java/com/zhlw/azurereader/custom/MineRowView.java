@@ -65,4 +65,5 @@ public class MineRowView extends RelativeLayout {
         arrow.setVisibility(arrowVisibility ? View.VISIBLE : View.GONE);
         typedArray.recycle();
     }
+
 }

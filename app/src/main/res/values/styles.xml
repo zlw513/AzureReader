@@ -30,6 +30,13 @@
         <!--<item name="android:radius">5dp</item>-->
     </style>
 
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#fff</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
     <style name="NoTitle" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>

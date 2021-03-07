@@ -23,7 +23,10 @@ import androidx.annotation.Nullable;
 
 import com.zhlw.azurereader.R;
 
-
+/**
+ * author:zlw
+ * 2020-11-28
+ */
 public class ButtyEditTextView extends ViewGroup {
 
     private static final int TYPETEXT = 0;

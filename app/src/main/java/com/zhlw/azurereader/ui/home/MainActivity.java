@@ -16,22 +16,25 @@ import android.os.Message;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.zhlw.azurereader.R;
 import com.zhlw.azurereader.adapter.SectionsPagerAdapter;
 import com.zhlw.azurereader.custom.CustomTabLayout;
 import com.zhlw.azurereader.ui.BaseActivity;
 import com.zhlw.azurereader.ui.search.SearchBookActivity;
+import com.zhlw.azurereader.utils.ThemeUtils;
 import com.zhlw.azurereader.viewmodel.MyViewModel;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements ThemeUtils.OnThemeChangeListener {
 
     private static final String[] TAB_TITLES = new String[]{"本地书架","网上书城","个人中心"};
     private List<String> titles = Arrays.asList(TAB_TITLES);
@@ -41,14 +44,23 @@ public class MainActivity extends BaseActivity {
     private Switch aSwitch;
     private TextView gridModel;
     private MyViewModel viewModel;
+    private AppBarLayout appbar_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ThemeUtils.registerThemeChangeListener(this);
         bindView();
         init();
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        initTheme(getApplicationContext());
+    }
+
 
     private void bindView(){
         viewPager = findViewById(R.id.view_pager);
@@ -56,6 +68,7 @@ public class MainActivity extends BaseActivity {
         toolBarTitle = findViewById(R.id.tv_toolbar_title);
         aSwitch = findViewById(R.id.switch_button);
         gridModel = findViewById(R.id.tv_switch_gongge);
+        appbar_layout = findViewById(R.id.appbar_layout);
     }
 
     private void init(){
@@ -136,4 +149,19 @@ public class MainActivity extends BaseActivity {
         editor.apply();//我这里需要立刻修正数据
         super.onStop();
     }
+
+    @Override
+    public void onThemeChanged() {
+        //重新设置状态栏颜色
+        initTheme(getApplicationContext());
+    }
+
+    public void initTheme(Context context) {
+        appbar_layout.setBackgroundColor(ThemeUtils.getmThereColor(context));
+        viewPager.setBackgroundColor(ThemeUtils.getmThereColor(context));
+        // 设置状态栏颜色 api21以上的方法
+        Window window = getWindow();
+        window.setStatusBarColor(ThemeUtils.getmThereColor(context));
+    }
+
 }

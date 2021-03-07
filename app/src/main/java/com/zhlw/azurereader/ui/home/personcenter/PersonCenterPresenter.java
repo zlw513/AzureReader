@@ -2,12 +2,17 @@ package com.zhlw.azurereader.ui.home.personcenter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
+
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.zhlw.azurereader.adapter.SelectColorAdapter;
 import com.zhlw.azurereader.application.SysManager;
 import com.zhlw.azurereader.bean.Setting;
 import com.zhlw.azurereader.constant.APPCONST;
+import com.zhlw.azurereader.custom.ColorSelectDialog;
 import com.zhlw.azurereader.presenter.BasePresenter;
 import com.zhlw.azurereader.ui.home.MainActivity;
 import com.zhlw.azurereader.ui.login.LoginActivity;
@@ -18,6 +23,7 @@ public class PersonCenterPresenter implements BasePresenter {
     private PersonCenterFragment mPersonCenterFragment;
     private MainActivity mainActivity;
     private Setting setting;
+    private ColorSelectDialog dialog;
 
     PersonCenterPresenter(PersonCenterFragment personCenterFragment){
         mPersonCenterFragment = personCenterFragment;
@@ -28,6 +34,9 @@ public class PersonCenterPresenter implements BasePresenter {
 
     @Override
     public void start() {
+        if (dialog == null){
+            dialog = new ColorSelectDialog(mainActivity, Gravity.CENTER, 0,0);
+        }
         mPersonCenterFragment.getmTvLoginName().setText(mainActivity.getViewModel().getmLoginName().getValue());//设置当前登录名
         //里面都是控件的初始化设置
         mPersonCenterFragment.getmShapeTextView().setOnClickListener(new View.OnClickListener() {
@@ -72,15 +81,13 @@ public class PersonCenterPresenter implements BasePresenter {
         mPersonCenterFragment.getmSkinChange().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO 换主题颜色功能,弹一个dialog
-
-
-
+                if (!dialog.isShowing()){
+                    dialog.show();
+                }
             }
         });
 
 
     }
-
 
 }
